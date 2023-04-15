@@ -17,13 +17,14 @@ Install last version
 ---
 
 We are going to use Docker to create one container of the APP and another container of the DB, connect between them and save their data using volumes.
+
 **Steps**
 - Create image of the APP (Dockerfile)
 - Run multi-container (docker-compose.yml) 
 
 ## Create image of APP
 
-![Dockerfile]()
+![Dockerfile](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/1.png?raw=true)
 
 At first we have to create an image based on the source code. To do this we have to use Dockerfile. Here we define **FROM** where we specify the base image. **RUN** execute linux command to create the folder where the app is going to be stored. **COPY** That is the command to copy the source code and where must be plased. **EXPOSE** The ports that should be exposed. **CMD** Especify the command to run the container.
 
