@@ -30,7 +30,26 @@ At first we have to create an image based on the source code. To do this we have
 
 ### Run multi-container
 
+![docker-compose](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/2.png?raw=true)
+
 Now we have to create the docker-compose.yml file. Where we define the **version**, the **services** (db and app). in **db** we define _the image, container name, port to expose, environment variables, and the volume where the data should be saved._ in **app** we define _the build that says that have to create the image defined in the dockerfile, the container name, the port to expose, the link indicates the name of the container that we want to map that our service app use, depends that specify that this service depend on other container. **volumes** define name of volumen and where to store the data saved.
+
+### Execution
+
+To execute we have to use command _`docker-compose up -d`_
+
+![docker-compose up -d](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/3.png?raw=true)
+
+Verify the service is running
+
+![localhost:3000](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/5.png?raw=true)
+
+![docker container logs app](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/6.png?raw=true)
+logs
+
+To end services we use the command _`docker-compose down`_ this command stops the containers and delete them.
+
+---
 
 ## Glossary
 
