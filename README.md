@@ -49,7 +49,7 @@ logs
 
 To end services we use the command _`docker-compose down`_ this command stops the containers and delete them.
 
-![docker container logs app](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/6.png?raw=true)
+![docker container logs app](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/8.png?raw=true)
 
 ---
 
