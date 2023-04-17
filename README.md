@@ -68,6 +68,7 @@ To enable live-reload we have to add this to the package.json
       "legacyWatch": true
 }
 `
+![package.json](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/15.png?raw=true)
 
 ## Create image of APP
 
