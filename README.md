@@ -34,7 +34,7 @@ At first we have to create an image based on the source code. To do this we have
 
 ![docker-compose](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/2.png?raw=true)
 
-Now we have to create the docker-compose.yml file. Where we define the **version**, the **services** (db and app). in **db** we define _the image, container name, port to expose, environment variables, and the volume where the data should be saved._ in **app** we define _the build that says that have to create the image defined in the dockerfile, the container name, the port to expose, the link indicates the name of the container that we want to map that our service app use, depends that specify that this service depend on other container. **volumes** define name of volumen and where to store the data saved.
+Now we have to create the docker-compose.yml file. Where we define the **version**, the **services** (db and app). in **db** we define the _image_, _container name_, _port_ to expose, _environment variables_, and the _volume_ where the data should be saved._ in **app** we define the _build_ that says that have to create the image defined in the dockerfile, the _container name_, the _port_ to expose, the _link_ indicates the name of the container that we want to map that our service app use, _depends_ that specify that this service depend on other container. **volumes** define name of volumen and where to store the data saved.
 
 ### Execution
 
@@ -68,6 +68,7 @@ To enable live-reload we have to add this to the package.json
       "legacyWatch": true
 }
 `
+
 ![package.json](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/15.png?raw=true)
 
 ## Create image of APP
@@ -80,7 +81,7 @@ At first we have to create an image based on the source code. To do this we have
 
 ![docker-compose-dev](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/10.png?raw=true)
 
-Now we have to create the docker-compose.yml file. Where we define the **version**, the **services** (db and app). in **db** we define _the image, container name, port to expose, environment variables, and the volume where the data should be saved._ in **app** we define _the build that says the context that is where is the docker-compose, and the file of the dockerfile.dev, the container name, the port to expose, the link indicates the name of the container that we want to map that our service app use, depends that specify that this service depend on other container, and the volume that help us to every change made on our host machine is copy to the working directory. **volumes** define name of volumen and where to store the data saved.
+Now we have to create the docker-compose.yml file. Where we define the **version**, the **services** (db and app). in **db** we define _the image_, _container name_, _port_ to expose, _environment variables_, and the _volume_ where the data should be saved. in **app** we define _the build_ that says the _context_ that is where is the _docker-compose_, and the file of the dockerfile.dev, the _container name_, the _port_ to expose, the _link_ indicates the name of the container that we want to map that our service app use, _depends_ that specify that this service depend on other container, and the _volume_ that help us to every change made on our host machine is copy to the working directory. **volumes** define name of volumen and where to store the data saved.
 
 ### Execution
 
