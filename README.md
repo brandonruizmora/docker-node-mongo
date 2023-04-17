@@ -18,9 +18,11 @@ Install last version
 
 We are going to use Docker to create one container of the APP and another container of the DB, connect between them and save their data using volumes.
 
+# First example: Dockerfile and docker-compose 
+
 **Steps**
 - Create image of the APP (Dockerfile)
-- Run multi-container (docker-compose.yml) 
+- Create multi-container (docker-compose.yml) 
 
 ## Create image of APP
 
@@ -46,6 +48,42 @@ Verify the service is running
 
 ![docker container logs app](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/5.png?raw=true)
 logs
+
+To end services we use the command _`docker-compose down`_ this command stops the containers and delete them.
+
+![docker container logs app](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/8.png?raw=true)
+
+# Second example: Dockerfile and docker-compose (dev environment and hot reload)
+
+**Steps**
+- Create dev image of the APP (Dockerfile.dev)
+- Create multi-container (docker-compose-dev.yml) 
+
+## Create image of APP
+
+![Dockerfile-dev](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/9.png?raw=true)
+
+At first we have to create an image based on the source code. To do this we have to use Dockerfile. Here we define **FROM** where we specify the base image. **RUN** execute linux command to install nodemon that will help us with the livereload, and create the folder where the app is going to be stored. **WORKDIR** Specify the working directory. **EXPOSE** The ports that should be exposed. **CMD** Especify the command to run the container.
+
+### Create multi-container
+
+![docker-compose-dev](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/10.png?raw=true)
+
+Now we have to create the docker-compose.yml file. Where we define the **version**, the **services** (db and app). in **db** we define _the image, container name, port to expose, environment variables, and the volume where the data should be saved._ in **app** we define _the build that says the context that is where is the docker-compose, and the file of the dockerfile.dev, the container name, the port to expose, the link indicates the name of the container that we want to map that our service app use, depends that specify that this service depend on other container, and the volume that help us to every change made on our host machine is copy to the working directory. **volumes** define name of volumen and where to store the data saved.
+
+### Execution
+
+To execute we have to use command _`docker compose -f docker-compose-dev.yml up`_
+
+![docker compose -f docker-compose-dev.yml up](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/12.png?raw=true)
+
+Now we can make some changes in the index.js file and the container will detect this changes and update the volume and this the working directory.
+
+![live-reload](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/13.png?raw=true)
+
+![file change](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/14.png?raw=true)
+
+![live-reload](https://github.com/brandonruizmora/docker-node-mongo/blob/master/images/13.png?raw=true)
 
 To end services we use the command _`docker-compose down`_ this command stops the containers and delete them.
 

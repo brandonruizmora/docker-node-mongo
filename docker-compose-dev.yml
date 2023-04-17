@@ -16,7 +16,9 @@ services:
       # postgres -> /var/lib/postgresql/data
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: app
     ports:
       - "3000:3000"
@@ -24,6 +26,8 @@ services:
       - db
     depends_on:
       - db
+    volumes:
+      - .:/home/app
 
 volumes:
   mongo-data:
