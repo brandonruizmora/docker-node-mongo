@@ -56,8 +56,18 @@ To end services we use the command _`docker-compose down`_ this command stops th
 # Second example: Dockerfile and docker-compose (dev environment and hot reload)
 
 **Steps**
+- Modify package.json
 - Create dev image of the APP (Dockerfile.dev)
 - Create multi-container (docker-compose-dev.yml) 
+
+## Modify package.json
+
+To enable live-reload we have to add this to the package.json
+`
+"nodemonConfig": {
+      "legacyWatch": true
+}
+`
 
 ## Create image of APP
 
